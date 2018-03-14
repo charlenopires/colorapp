@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ColorApp</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js"></script>
 </head>
 <body>
     <div class="container">
@@ -16,10 +15,25 @@
         <div class="elem"></div>
         <div class="elem"></div>
     </div>
-    <form action="/">
-        <button id="btn" type="button" onclick="changeColor()">
-            Change color
-        </button>
-    </form>
+    <button id="btn" type="button" onclick="changeColor()">
+        Change color
+    </button>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDQ5IFVmydKco40xm1-Fr4htyDG8Uh40GQ",
+            authDomain: "colorapp-beta.firebaseapp.com",
+            databaseURL: "https://colorapp-beta.firebaseio.com",
+            projectId: "colorapp-beta",
+            storageBucket: "",
+            messagingSenderId: "285004866949"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>
