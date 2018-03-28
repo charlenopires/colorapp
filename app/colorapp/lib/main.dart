@@ -23,13 +23,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
-  _MyHomePageState({this.columns});
-  final List<Widget> columns;
+  final List<Widget> columns = new List();
 
-  List<Widget> colorsPainel(int r, int g,int b){
+  List<Widget> colorsPainel(int r, int g, int b){
     for(var i=0; i<=4; i++){
-      columns.add(ColorColumn(r, g, b, 0.1*(i+1)*2));
+      columns.add(
+        new Expanded(
+              child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Expanded(
+                    child: new Container(
+                      color: new Color.fromRGBO(r, g, b, 0.1*(i+1)*2),
+                    ),
+                  ),
+                ],
+              ),
+      ));
     }
     return columns;
   }
@@ -43,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: 
       new Stack(
         children: 
-          colorsPainel(64, 23, 211),
+          colorsPainel(64, 23, 211)
           // .add(
           //   new Center(
           //     child: new RaisedButton(
@@ -54,35 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
           //     ),
           //   )
         ),
-    );
-  }
-
-
-}
-
-//fromRGBO(64, 23, 211, 0.8),
-
-
-
-class ColorColumn extends StatelessWidget{
-  const ColorColumn(this.r, this.g, this.b, this.alpha);
-
-  final int r, g, b;
-  final double alpha;
-
-  @override
-  Widget build(BuildContext context){
-    return new Expanded(
-                child: new Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    new Expanded(
-                      child: new Container(
-                        color: new Color.fromRGBO(r, g, b, alpha),
-                      ),
-                    ),
-                  ],
-                ),
     );
   }
 }
