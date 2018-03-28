@@ -3,61 +3,111 @@ import 'package:flutter/material.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ColorApp',
+      debugShowCheckedModeBanner: false,
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'ColorApp'),
+      home: new MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text(widget.title),
+        title: new Text("AppColor"),
       ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
+      body: 
+      new Stack(
+        children: <Widget>[
+          new Center(
+            child: new Row(
+              children: <Widget> [
+                new Expanded(
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Expanded(
+                        child: new Container(
+                          color: new Color.fromRGBO(64, 23, 211, 0.2),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                new Expanded(
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Expanded(
+                        child: new Container(
+                          color: new Color.fromRGBO(64, 23, 211, 0.4),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                new Expanded(
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Expanded(
+                        child: new Container(
+                          color: new Color.fromRGBO(64, 23, 211, 0.6),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                new Expanded(
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Expanded(
+                        child: new Container(
+                          color: new Color.fromRGBO(64, 23, 211, 0.8),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                new Expanded(
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Expanded(
+                        child: new Container(
+                          color: new Color.fromRGBO(64, 23, 211, 1.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ]
             ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+          ),
+          new Center(
+            child: new RaisedButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: new Text("Change Color"),
+              onPressed: (){ print("Pressed!!!");},
             ),
-          ],
-        ),
+          )
+        ],
       ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
